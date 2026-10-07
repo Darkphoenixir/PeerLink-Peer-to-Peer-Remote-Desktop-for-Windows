@@ -12,6 +12,7 @@ import { TrustedDevicesView } from './components/TrustedDevicesView';
 import { AuditLogView } from './components/AuditLogView';
 import { NetworkDiagnosticsView } from './components/NetworkDiagnosticsView';
 import { SettingsView } from './components/SettingsView';
+import { DocsGalleryView } from './components/DocsGalleryView';
 import { PairingModal } from './components/PairingModal';
 import { HostConsentModal } from './components/HostConsentModal';
 import { peerLinkStore } from './services/store';
@@ -116,6 +117,7 @@ export default function App() {
           <HomeView
             onStartPairing={handleStartPairing}
             onOpenNetworkDiag={() => setCurrentTab('network')}
+            onOpenDocs={() => setCurrentTab('docs')}
           />
         )}
 
@@ -160,6 +162,8 @@ export default function App() {
         {currentTab === 'audit' && <AuditLogView />}
 
         {currentTab === 'network' && <NetworkDiagnosticsView />}
+
+        {currentTab === 'docs' && <DocsGalleryView />}
 
         {currentTab === 'settings' && <SettingsView />}
       </main>

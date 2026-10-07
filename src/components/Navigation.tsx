@@ -13,7 +13,8 @@ import {
   Settings,
   OctagonAlert,
   Radio,
-  Cast
+  Cast,
+  BookOpen
 } from 'lucide-react';
 import { ActiveSession } from '../services/store';
 
@@ -41,6 +42,7 @@ export const Navigation: React.FC<NavigationProps> = ({
     { id: 'files', label: 'File Manager', icon: FolderSync },
     { id: 'audit', label: 'Audit Log', icon: FileText },
     { id: 'network', label: 'Network & Directory', icon: Activity },
+    { id: 'docs', label: 'Docs & Gallery', icon: BookOpen },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 

@@ -17,7 +17,8 @@ import {
   Server,
   Lock,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  BookOpen
 } from 'lucide-react';
 import { peerLinkStore } from '../services/store';
 import { ShortCodeSplit } from '../types/peerlink';
@@ -26,11 +27,13 @@ import { formatBytes } from '../services/crypto-mock';
 interface HomeViewProps {
   onStartPairing: (initialCode?: string) => void;
   onOpenNetworkDiag: () => void;
+  onOpenDocs: () => void;
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
   onStartPairing,
-  onOpenNetworkDiag
+  onOpenNetworkDiag,
+  onOpenDocs
 }) => {
   const [copiedId, setCopiedId] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
@@ -105,11 +108,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         <div className="flex items-center gap-3">
           <button
+            onClick={onOpenDocs}
+            className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700/60 text-xs font-medium text-emerald-400 transition-colors cursor-pointer"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Docs &amp; Showcase</span>
+          </button>
+
+          <button
             onClick={onOpenNetworkDiag}
             className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700/60 text-xs font-medium text-neutral-300 transition-colors cursor-pointer"
           >
-            <Server className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Directory & Relay Architecture</span>
+            <Server className="w-3.5 h-3.5 text-blue-400" />
+            <span>Architecture &amp; Relay</span>
             <ChevronRight className="w-3.5 h-3.5 text-neutral-500" />
           </button>
         </div>
